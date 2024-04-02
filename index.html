@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>audio</title>
+</head>
+<style>
+  body {
+    background: #000;
+    text-align: center;
+  }
+  input{
+    color: #fff;
+  }
+</style>
+<body>
+  <div>
+    <canvas ></canvas>
+  </div>
+  <input type="file">
+  <audio src="./Bleach.mp3" controls></audio>
+  <script src="./index.js"></script>
+  <script>
+    // 获取input标签
+    const input = document.querySelector('input[type="file"]');
+    // 获取audio标签
+    const audio = document.querySelector('audio');
+    input.addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      const url = URL.createObjectURL(file);
+      audio.src = url;
+      audio.play();
+    })
+  </script>
+</body>
+</html>
